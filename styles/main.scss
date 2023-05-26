@@ -1,0 +1,53 @@
+@import "bootstrap/scss/bootstrap";
+@import "normalize.css";
+
+body {
+  margin: 0;
+}
+
+h2 {
+  padding: 15px 0 15px 35px;
+}
+
+.section {
+  display: flex;
+  height: 62rem;body {
+  margin: 0;
+}
+
+h2 {
+  padding: 15px 0 15px 35px;
+}
+
+.section {
+  display: flex;
+  height: 62rem;
+}
+
+.todo-folders {
+  width: 25%;
+  background-color: rgb(232, 232, 232);
+}
+.todos {
+  width: 75%;
+}
+
+.todo-info {
+  display: none;
+}
+
+
+}
+
+.todo-folders {
+  width: 25%;
+  background-color: rgb(232, 232, 232);
+}
+.todos {
+  width: 75%;
+}
+
+.todo-info {
+  display: none;
+}
+
