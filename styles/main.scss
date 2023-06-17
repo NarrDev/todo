@@ -11,16 +11,6 @@ h2 {
 
 .section {
   display: flex;
-  height: 62rem;body {
-  margin: 0;
-}
-
-h2 {
-  padding: 15px 0 15px 35px;
-}
-
-.section {
-  display: flex;
   height: 62rem;
 }
 
@@ -28,26 +18,28 @@ h2 {
   width: 25%;
   background-color: rgb(232, 232, 232);
 }
-.todos {
+
+.todo-list {
   width: 75%;
+}
+
+.todo-div {
+  display: flex;
+  gap: 15px;
 }
 
 .todo-info {
   display: none;
 }
 
-
+.btn-group-vertical, .list-group {
+  width: 100%;
+  padding: 20px;
+  gap: 10px;
 }
 
-.todo-folders {
-  width: 25%;
-  background-color: rgb(232, 232, 232);
+.btn-group-vertical .btn.btn-primary,  .list-group .list-group-item{
+  width: 100%;
+  border-radius:  0.375rem;
+  
 }
-.todos {
-  width: 75%;
-}
-
-.todo-info {
-  display: none;
-}
-

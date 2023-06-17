@@ -28,34 +28,62 @@ function listening() {
   console.log(`running on localhost: ${port}`);
 }
 
-const username = "Narrative";
-const password = "qwerty123";
 const data = {
   users: {
     Narrative: {
       folders: {
-        Today: [{
-          description: 'do some stuff',
-          "created at": "31.12.2023 23:59"
-        }],
-        Tomorrow: "Tomorrow",
-        Complited: "Complited",
+        Today: [
+          {
+            description: "task 0",
+            "created at": "31.12.2023 23:59",
+          },
+          {
+            description: "task 1",
+            "created at": "31.12.2023 23:59",
+          },
+          {
+            description: "task 2",
+            "created at": "31.12.2023 23:59",
+          },
+        ],
+        Tomorrow: [
+          {
+            description: "task 0",
+            "created at": "31.12.2023 23:59",
+          },
+          {
+            description: "task 1",
+            "created at": "31.12.2023 23:59",
+          },
+          {
+            description: "task 2",
+            "created at": "31.12.2023 23:59",
+          },
+        ],
+        Complited: [
+          {
+            description: "task",
+            "created at": "31.12.2023 23:59",
+          },
+          {
+            description: "task 1",
+            "created at": "31.12.2023 23:59",
+          },
+          {
+            description: "task 2",
+            "created at": "31.12.2023 23:59",
+          },
+        ],
       },
     },
   },
 };
 
-app.post("/getData/:username", (req, res) => {
-  if (req.params.username === username) {
-    res.json(data.users[req.params.username].folders);
+app.get("/getData/:username", (req, res) => {
+  if (Boolean(data.users[req.params.username])) {
+    res.json(data.users[req.params.username]);
+    console.log(1)
   } else {
-    res.status(403).send({ error: "Wrong Data!" });
-  }
-});
-
-app.post("/:username/:folderName", (req, res) => {
-  console.log(1);
-  if (Boolean(data.users[req.params.username].folders[req.params.folderName])) {
-    res.json(data.users[req.params.username].folders[req.params.folderName]);
+    res.json(new Error("User doesn't exist!"))
   }
 });
