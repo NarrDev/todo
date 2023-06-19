@@ -75,3 +75,4 @@ export async function init(username) {
     folderList.appendChild(button);
   }
 }
+
