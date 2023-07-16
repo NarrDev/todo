@@ -32,14 +32,19 @@ h2 {
   display: none;
 }
 
-.btn-group-vertical, .list-group {
+.btn-group-vertical,
+.list-group {
   width: 100%;
   padding: 20px;
   gap: 10px;
 }
 
-.btn-group-vertical .btn.btn-primary,  .list-group .list-group-item{
-  width: 100%;
-  border-radius:  0.375rem;
-  
+#add-folder-button {
+  background-color: rgb(69, 143, 255);
+
+}
+
+.btn-group-vertical .btn.btn-primary,
+.list-group .list-group-item {
+  border-radius: 0.375rem !important;
 }
