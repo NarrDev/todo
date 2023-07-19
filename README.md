@@ -22,3 +22,9 @@ Version 1.0
 - it is possible to add or remove folders
 - todos are accessible by clicking on folders
 - todos can be "done" by ticking them
+
+Version 1.1
+
+- better code
+- optimisation
+- new button "change folders name"
