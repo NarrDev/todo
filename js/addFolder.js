@@ -4,23 +4,7 @@ const folderList = document.querySelector(
 const todoList = document.querySelector(".todoList .todos .btn-group-vertical");
 const addFolderButton = document.getElementById("add-folder-button");
 
-// Add-folder-button at the begining of the folder-list
-addFolderButton.addEventListener("click", async () => {
-  const foldersName = prompt("Name your new folder:");
-  if (foldersName) {
-    fetch(`http://localhost:8080/addFolder/${foldersName}`, {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    });
-
-    deleteFolder(
-      { name: foldersName, removable: true },
-      addFolder(foldersName)
-    );
-  }
-});
+import { initFolder } from "./init";
 
 export async function addFolder(foldersName) {
   // Folder-button in the folder-list
@@ -85,3 +69,17 @@ export async function addFolder(foldersName) {
 
   return folderButton;
 }
+
+// Add-folder-button at the begining of the folder-list
+addFolderButton.addEventListener("click", async() => {
+  const foldersName = document.getElementById("folders-name").value;
+  if (foldersName) {
+    fetch(`http://localhost:8080/addFolder/${foldersName}`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    });
+  }
+  initFolder()
+});

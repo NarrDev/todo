@@ -21,7 +21,7 @@ app.use(express.static("./dist"));
 
 const port = 8080;
 
-const whitelist = ["http://localhost:5173", "http://25.68.148.181:8080/"];
+const whitelist = ["http://localhost:5173", "http://25.68.148.181:8080/", "http://127.0.0.1:5500/"];
 const corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
@@ -52,18 +52,19 @@ app.post("/addFolder/:foldersName", async (req, res) => {
     console.error("Folder exists");
     res.json({ error: "Folder exists" });
   } else {
-    await folders.insertOne({
+    folders.insertOne({
       name: req.params.foldersName,
       removable: true,
     });
-    res.json();
   }
 });
 
 // Delete the folder
 
 app.delete("/deleteFolder/:foldersName", async (req, res) => {
-  await folders.deleteOne({ name: req.params.foldersName });
+  todos.deleteMany({ folder: req.params.foldersName });
+
+  folders.deleteOne({ name: req.params.foldersName });
 });
 
 // Get the todos
@@ -86,7 +87,7 @@ app.post("/todoDone/:foldersName/:todosName", async (req, res) => {
     name: req.params.todosName,
   });
   if (todo.done) {
-    await todos.findOneAndUpdate(
+    todos.findOneAndUpdate(
       {
         folder: req.params.foldersName,
         name: req.params.todosName,
@@ -94,7 +95,7 @@ app.post("/todoDone/:foldersName/:todosName", async (req, res) => {
       { $set: { done: false } }
     );
   } else {
-    await todos.findOneAndUpdate(
+    todos.findOneAndUpdate(
       {
         folder: req.params.foldersName,
         name: req.params.todosName,

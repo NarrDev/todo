@@ -15,7 +15,7 @@ Version 0.2
 - you can check certain todo
 - todo info appear on click on todos
 
-Version 1.0 
+Version 1.0 ( Rebirth )
 
 - all features were remade
 - MongoDB is now the main database
@@ -28,3 +28,7 @@ Version 1.1
 - better code
 - optimisation
 - new button "change folders name"
+
+Version 1.2
+
+- 

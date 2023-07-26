@@ -1,11 +1,8 @@
-const folderList = document.querySelector(
-  ".todo-folders .folders .btn-group-vertical"
-);
+
+export const changeFoldersButton = document.createElement("button");
 
 export function changeFoldersNameButton(foldersName, foldersButton) {
-  const changeFoldersButton = document.createElement("button");
   changeFoldersButton.innerText = "Change";
-  folderList.appendChild(changeFoldersButton);
   changeFoldersButton.addEventListener("click", () => {
     const newName = prompt("New name:");
     foldersButton.innerText = newName;
@@ -21,4 +18,5 @@ export function changeFoldersNameButton(foldersName, foldersButton) {
       }
     );
   });
+  return changeFoldersButton
 }

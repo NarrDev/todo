@@ -1,15 +1,14 @@
 const folderList = document.querySelector(
   ".todo-folders .folders .btn-group-vertical"
 );
+import { changeFoldersButton } from "./changeFoldersName";
 
-export function deleteFolder(folder, folderButton) {
+export function deleteFolder(folder, folderButton, foldersDiv) {
   const deleteFolderButton = document.createElement("button");
   deleteFolderButton.innerText = "Delete";
-  folderList.appendChild(deleteFolderButton);
   deleteFolderButton.addEventListener("click", async () => {
-    folderList.removeChild(await folderButton);
-    folderList.removeChild(deleteFolderButton);
-
+    folderList.removeChild(foldersDiv)
+    
     // Fetch to delete folder
     await fetch("http://localhost:8080/deleteFolder/" + folder.name, {
       method: "DELETE",
@@ -21,5 +20,6 @@ export function deleteFolder(folder, folderButton) {
       .catch((error) => {
         console.error(error);
       });
-  });
+  })
+  return deleteFolderButton
 }
